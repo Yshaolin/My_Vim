@@ -296,6 +296,7 @@ imap <F10> <ESC>:w<cr>:call RunPython()<CR>
 map <F10> :w<cr>:call RunPython()<CR>
 vmap <F10> <ESC>:w<cr>:call RunPython<CR>
 
+
 let python_highlight_all = 1
 let s:LastShellReturn_C = 0
 let s:LastShellReturn_L = 0
