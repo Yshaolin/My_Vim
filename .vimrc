@@ -138,10 +138,10 @@ Bundle 'davidhalter/jedi-vim'
 "Bundle 'cSyntaxAfter'
 "Bundle 'ctrlpvim/ctrlp.vim'
 "Bundle 'mattn/emmet-vim'
-"Bundle 'Yggdroot/indentLine'
+Bundle 'Yggdroot/indentLine'
 "Bundle 'vim-javacompleteex'
 "Bundle 'Mark--Karkat'
-"Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neocomplcache.vim'
 "Bundle 'scrooloose/nerdcommenter'
 "Bundle 'scrooloose/nerdtree'
 "Bundle 'OmniCppComplete'
@@ -156,7 +156,7 @@ Bundle 'Lokaltog/vim-powerline'
 "Bundle 'taglist.vim'
 "Bundle 'TxtBrowser'
 "Bundle 'ZoomWin'
-"Bundle 'python-syntax'
+Bundle 'python-syntax'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'rkulla/pydiction'
 " -----------------------------------------------------------------------------
@@ -192,9 +192,8 @@ set tabstop=4                                         "设置Tab键的宽度，�
 set shiftwidth=4                                      "换行时自动缩进宽度，可更改（宽度同tabstop）
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度
 set foldenable                                        "启用折叠
-"set foldmethod=syntax                                 "syntax 折叠方式
 "setlocal foldlevel=1
-set foldlevelstart=99
+"set foldlevelstart=9
 set foldmethod=indent                                 "indent 折叠方式
 "set foldmethod=marker                                "marker 折叠方式
 
@@ -719,7 +718,7 @@ let g:indentLine_color_term = 239
 " " 快速浏览和操作Buffer
 " " 主要用于同时打开多个文件并相与切换
 
-" " let g:miniBufExplMapWindowNavArrows = 1     "用Ctrl加方向键切换到上下左右的窗口中去
+" let g:miniBufExplMapWindowNavArrows = 1     "用Ctrl加方向键切换到上下左右的窗口中去
 " let g:miniBufExplMapWindowNavVim = 1        "用<C-k,j,h,l>切换到上下左右的窗口中去
 " let g:miniBufExplMapCTabSwitchBufs = 1      "功能增强（不过好像只有在Windows中才有用）
 " "                                            <C-Tab> 向前循环切换到每个buffer上,并在但前窗口打开
@@ -728,17 +727,17 @@ let g:indentLine_color_term = 239
 " 在不使用 MiniBufExplorer 插件时也可用<C-k,j,h,l>切换到上下左右的窗口中去
 noremap <c-k> <c-w>k
 noremap <c-j> <c-w>j
-noremap <c-h> <c-w>h
+"noremap <c-h> <c-w>h
 noremap <c-l> <c-w>l
 
 " -----------------------------------------------------------------------------
 "  < neocomplcache 插件配置 >
 " -----------------------------------------------------------------------------
 " 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
-"let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
-" let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
+let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
+"let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
 " 在弹出补全列表后用 <c-p> 或 <c-n> 进行上下选择效果比较好
-"let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 3
 " -----------------------------------------------------------------------------
 "  < nerdcommenter 插件配置 >
 " -----------------------------------------------------------------------------
@@ -750,7 +749,7 @@ noremap <c-l> <c-w>l
 " <Leader>cu 取消选中区域(行)的注释，选中区域(行)内至少有一个 /* */
 " <Leader>ca 在/*...*/与//这两种注释方式中切换（其它语言可能不一样了）
 " <Leader>cA 行尾注释
-let NERDSpaceDelims = 1                     "在左注释符之后，右注释符之前留有空格
+"let NERDSpaceDelims = 1                     "在左注释符之后，右注释符之前留有空格
 
 " -----------------------------------------------------------------------------
 "  < nerdtree 插件配置 >
@@ -769,7 +768,7 @@ nmap <F2> :NERDTreeToggle<CR>
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
 " 我使用上面的参数生成标签后，对函数使用跳转时会出现多个选择
 " 所以我就将--c++-kinds=+p参数给去掉了，如果大侠有什么其它解决方法希望不要保留呀
-set completeopt=menu                        "关闭预览窗口
+"set completeopt=menu                        "关闭预览窗口
 
 " -----------------------------------------------------------------------------
 "  < powerline 插件配置 >
@@ -792,7 +791,7 @@ set completeopt=menu                        "关闭预览窗口
 "  < SrcExpl 插件配置 >
 " -----------------------------------------------------------------------------
 " 增强源代码浏览，其功能就像Windows中的"Source Insight"
-nmap <F3> :SrcExplToggle<CR>                "打开/闭浏览窗口
+"nmap <F3> :SrcExplToggle<CR>                "打开/闭浏览窗口
 
 " -----------------------------------------------------------------------------
 "  < std_c 插件配置 >
@@ -800,7 +799,7 @@ nmap <F3> :SrcExplToggle<CR>                "打开/闭浏览窗口
 " 用于增强C语法高亮
 
 " 启用 // 注视风格
-let c_cpp_comments = 0
+"let c_cpp_comments = 0
 
 " -----------------------------------------------------------------------------
 "  < surround 插件配置 >
@@ -826,9 +825,9 @@ let c_cpp_comments = 0
 " 相对 TagList 能更好的支持面向对象
 
 " 常规模式下输入 tb 调用插件，如果有打开 TagList 窗口则先将其关闭
-nmap tb :TlistClose<CR>:TagbarToggle<CR>
+"nmap tb :TlistClose<CR>:TagbarToggle<CR>
 
-let g:tagbar_width=30                       "设置窗口宽度
+"let g:tagbar_width=30                       "设置窗口宽度
 " let g:tagbar_left=1                         "在左侧窗口中显示
 
 " -----------------------------------------------------------------------------
@@ -838,20 +837,20 @@ let g:tagbar_width=30                       "设置窗口宽度
 " 那里面列出了当前文件中的所有宏,全局变量, 函数名等
 
 " 常规模式下输入 tl 调用插件，如果有打开 Tagbar 窗口则先将其关闭
-nmap tl :TagbarClose<CR>:Tlist<CR>
+"nmap tl :TagbarClose<CR>:Tlist<CR>
 
-let Tlist_Show_One_File=1                   "只显示当前文件的tags
+"let Tlist_Show_One_File=1                   "只显示当前文件的tags
 " let Tlist_Enable_Fold_Column=0              "使taglist插件不显示左边的折叠行
-let Tlist_Exit_OnlyWindow=1                 "如果Taglist窗口是最后一个窗口则退出Vim
-let Tlist_File_Fold_Auto_Close=1            "自动折叠
-let Tlist_WinWidth=30                       "设置窗口宽度
-let Tlist_Use_Right_Window=1                "在右侧窗口中显示
+"let Tlist_Exit_OnlyWindow=1                 "如果Taglist窗口是最后一个窗口则退出Vim
+"let Tlist_File_Fold_Auto_Close=1            "自动折叠
+"let Tlist_WinWidth=30                       "设置窗口宽度
+"let Tlist_Use_Right_Window=1                "在右侧窗口中显示
 
 " -----------------------------------------------------------------------------
 "  < txtbrowser 插件配置 >
 " -----------------------------------------------------------------------------
 " 用于文本文件生成标签与与语法高亮（调用TagList插件生成标签，如果可以）
-au BufRead,BufNewFile *.txt setlocal ft=txt
+"au BufRead,BufNewFile *.txt setlocal ft=txt
 
 " -----------------------------------------------------------------------------
 "  < ZoomWin 插件配置 >
@@ -950,8 +949,6 @@ endif
 "   <pydiction 工具配置>
 "------------------------------------------------------------------------------
 "
-let g:pydiction_location = '/home/ubuntu-4118/.vim/bundle/pydiction/complete-dict'
-let g:pydiction_menu_height = 5
 "
 "
 "
@@ -991,8 +988,6 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 " 下面的设置取消注释，并修改双引号中的键为你想要的，如修改为逗号键。
 
 " let mapleader = ","
-execute pathogen#infect()
-
 
 
 
@@ -1003,4 +998,4 @@ execute pathogen#infect()
 "let g:jedi#popup_on_dot=0
 "let g:jedi#popup_selet_first=0
 
-
+let python_highlight_all = 1
