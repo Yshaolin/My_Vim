@@ -132,32 +132,33 @@ Bundle 'gmarik/vundle'
 "Bundle 'a.vim'
 "Bundle 'Align'
 Bundle 'auto-pairs'
+Bundle 'davidhalter/jedi-vim'
 "Bundle 'bufexplorer.zip'
-Bundle 'ccvext.vim'
-Bundle 'cSyntaxAfter'
+"Bundle 'ccvext.vim'
+"Bundle 'cSyntaxAfter'
 "Bundle 'ctrlpvim/ctrlp.vim'
 "Bundle 'mattn/emmet-vim'
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 "Bundle 'vim-javacompleteex'
 "Bundle 'Mark--Karkat'
-Bundle 'Shougo/neocomplcache.vim'
+"Bundle 'Shougo/neocomplcache.vim'
 "Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 "Bundle 'OmniCppComplete'
 Bundle 'Lokaltog/vim-powerline'
 "Bundle 'repeat.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'wesleyche/SrcExpl'
+"Bundle 'msanders/snipmate.vim'
+"Bundle 'wesleyche/SrcExpl'
 "Bundle 'std_c.zip'
-Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-surround'
 "Bundle 'syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'taglist.vim'
-Bundle 'TxtBrowser'
-Bundle 'ZoomWin'
-Bundle 'python-syntax'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'rkulla/pydiction'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'taglist.vim'
+"Bundle 'TxtBrowser'
+"Bundle 'ZoomWin'
+"Bundle 'python-syntax'
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'rkulla/pydiction'
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
 " -----------------------------------------------------------------------------
@@ -734,10 +735,10 @@ noremap <c-l> <c-w>l
 "  < neocomplcache 插件配置 >
 " -----------------------------------------------------------------------------
 " 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
-let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
+"let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
 " let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
 " 在弹出补全列表后用 <c-p> 或 <c-n> 进行上下选择效果比较好
-
+"let g:neocomplcache_min_syntax_length = 3
 " -----------------------------------------------------------------------------
 "  < nerdcommenter 插件配置 >
 " -----------------------------------------------------------------------------
@@ -991,5 +992,15 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 
 " let mapleader = ","
 execute pathogen#infect()
+
+
+
+
+"Python
+"let g:jedi#auto_initialization=0
+"let g:jedi#auto_vim_configuration=0
+"let g:jedi#use_splits_not_buffers="left"
+"let g:jedi#popup_on_dot=0
+"let g:jedi#popup_selet_first=0
 
 
