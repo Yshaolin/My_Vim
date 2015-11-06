@@ -1,0 +1,1 @@
+bind -x '"\C-a\C-l" : printf "\033c"'
