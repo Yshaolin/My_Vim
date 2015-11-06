@@ -116,49 +116,79 @@ endif
 
 set nocompatible                                      "禁用 Vi 兼容模式
 filetype off                                          "禁用文件类型侦测
-
-if g:islinux
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')
-endif
-
 " 使用Vundle来管理插件，这个必须要有。
-Bundle 'gmarik/vundle'
+"" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
-"Bundle 'a.vim'
-"Bundle 'Align'
-Bundle 'auto-pairs'
-Bundle 'davidhalter/jedi-vim'
-"Bundle 'bufexplorer.zip'
-"Bundle 'ccvext.vim'
-"Bundle 'cSyntaxAfter'
-"Bundle 'ctrlpvim/ctrlp.vim'
-"Bundle 'mattn/emmet-vim'
-Bundle 'Yggdroot/indentLine'
-"Bundle 'vim-javacompleteex'
-"Bundle 'Mark--Karkat'
-Bundle 'Shougo/neocomplcache.vim'
-"Bundle 'scrooloose/nerdcommenter'
-"Bundle 'scrooloose/nerdtree'
-"Bundle 'OmniCppComplete'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'repeat.vim'
-"Bundle 'msanders/snipmate.vim'
-"Bundle 'wesleyche/SrcExpl'
-"Bundle 'std_c.zip'
-"Bundle 'tpope/vim-surround'
-"Bundle 'syntastic'
-"Bundle 'majutsushi/tagbar'
-"Bundle 'taglist.vim'
-"Bundle 'TxtBrowser'
-"Bundle 'ZoomWin'
-Bundle 'python-syntax'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'rkulla/pydiction'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'a.vim'
+"Plugin 'Align'
+Plugin 'auto-pairs'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'bufexplorer.zip'
+"Plugin 'ccvext.vim'
+"Plugin 'cSyntaxAfter'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'mattn/emmet-vim'
+Plugin 'Yggdroot/indentLine'
+"Plugin 'vim-javacompleteex'
+"Plugin 'Mark--Karkat'
+"Plugin 'Shougo/neocomplete.vim'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'OmniCppComplete'
+Plugin 'Lokaltog/vim-powerline'
+"Plugin 'repeat.vim'
+"Plugin 'msanders/snipmate.vim'
+"Plugin 'wesleyche/SrcExpl'
+"Plugin 'std_c.zip'
+"Plugin 'tpope/vim-surround'
+"Plugin 'syntastic'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'taglist.vim'
+"Plugin 'TxtBrowser'
+"Plugin 'ZoomWin'
+Plugin 'python-syntax'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'rkulla/pydiction'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
 " -----------------------------------------------------------------------------
@@ -730,19 +760,92 @@ let g:indentLine_color_term = 239
 " "                                            <C-S-Tab> 向后循环切换到每个buffer上,并在当前窗口打开
 
 " 在不使用 MiniBufExplorer 插件时也可用<C-k,j,h,l>切换到上下左右的窗口中去
-noremap <c-k> <c-w>k
-noremap <c-j> <c-w>j
+"noremap <c-k> <c-w>k
+"noremap <c-j> <c-w>j
 "noremap <c-h> <c-w>h
-noremap <c-l> <c-w>l
+"noremap <c-l> <c-w>l
 
 " -----------------------------------------------------------------------------
-"  < neocomplcache 插件配置 >
+"  < neocomplete 插件配置 >
 " -----------------------------------------------------------------------------
-" 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
-let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
-"let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
-" 在弹出补全列表后用 <c-p> 或 <c-n> 进行上下选择效果比较好
-let g:neocomplcache_min_syntax_length = 3
+""" 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
+"""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+"""" Disable AutoComplPop.
+""let g:acp_enableAtStartup = 0
+""" Use neocomplete.
+""let g:neocomplete#enable_at_startup = 1
+""" " Use smartcase.
+""let g:neocomplete#enable_smart_case = 1
+""" " Set minimum syntax keyword length.
+""let g:neocomplete#sources#syntax#min_keyword_length = 3
+""let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+""
+""" Define dictionary.
+""let g:neocomplete#sources#dictionary#dictionaries = {
+""    \ 'default' : '',
+""    \ 'vimshell' : $HOME.'/.vimshell_hist',
+""    \ 'scheme' : $HOME.'/.gosh_completions'
+""        \ }
+""
+""" Define keyword.
+""if !exists('g:neocomplete#keyword_patterns')
+""    let g:neocomplete#keyword_patterns = {}
+""endif
+""let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+""
+""" Plugin key-mappings.
+""inoremap <expr><C-g>     neocomplete#undo_completion()
+"""inoremap <expr><C-l>     neocomplete#complete_common_string()
+""
+""" Recommended key-mappings.
+""" <CR>: close popup and save indent.
+""inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+""function! s:my_cr_function()
+""   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+""  " For no inserting <CR> key.
+""  "return pumvisible() ? "\<C-y>" : "\<CR>"
+""endfunction
+""" <TAB>: completion.
+""inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+""" <C-h>, <BS>: close popup and delete backword char.
+"""inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"""inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+""" Close popup by <Space>.
+"""inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+""
+""" AutoComplPop like behavior.
+"""let g:neocomplete#enable_auto_select = 1
+""
+""" Shell like behavior(not recommended).
+"""set completeopt+=longest
+"""let g:neocomplete#enable_auto_select = 1
+"""let g:neocomplete#disable_auto_complete = 1
+"""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+""   
+""" Enable omni completion.
+""autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+""autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+""autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+""autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+""autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+""
+""" Enable heavy omni completion.
+""if !exists('g:neocomplete#sources#omni#input_patterns')
+""    let g:neocomplete#sources#omni#input_patterns = {}
+""endif
+"""let g:neocomplete#sources#omni#input_patterns.php = '[^.  \t]->\h\w*\|\h\w*::'
+"""let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"""let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+""
+""" For perlomni.vim setting.
+""" https://github.com/c9s/perlomni.vim
+""let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+""
+""
+""
+""
+""
+"set completeopt=menu,longest
 " -----------------------------------------------------------------------------
 "  < nerdcommenter 插件配置 >
 " -----------------------------------------------------------------------------
