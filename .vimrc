@@ -139,7 +139,7 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'Mark--Karkat'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'OmniCppComplete'
 Plugin 'Lokaltog/vim-powerline'
 "Plugin 'repeat.vim'
@@ -760,10 +760,10 @@ let g:indentLine_color_term = 239
 " "                                            <C-S-Tab> 向后循环切换到每个buffer上,并在当前窗口打开
 
 " 在不使用 MiniBufExplorer 插件时也可用<C-k,j,h,l>切换到上下左右的窗口中去
-"noremap <c-k> <c-w>k
-"noremap <c-j> <c-w>j
-"noremap <c-h> <c-w>h
-"noremap <c-l> <c-w>l
+noremap <c-k> <c-w>k
+noremap <c-j> <c-w>j
+noremap <c-h> <c-w>h
+noremap <c-l> <c-w>l
 
 " -----------------------------------------------------------------------------
 "  < neocomplete 插件配置 >
@@ -844,8 +844,26 @@ let g:indentLine_color_term = 239
 ""
 ""
 ""
-""
-"set completeopt=menu,longest
+""YCM配置
+" for ycm
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
+let g:ycm_filetype_blacklist = {
+    \ 'tagbar' : 1,
+    \ 'qf' : 1,
+    \ 'notes' : 1,
+    \ 'markdown' : 1,
+    \ 'unite' : 1,
+    \ 'text' : 1,
+    \ 'vimwiki' : 1,
+    \ 'gitcommit' : 1,
+    \}
+
+set completeopt=menu,longest
 " -----------------------------------------------------------------------------
 "  < nerdcommenter 插件配置 >
 " -----------------------------------------------------------------------------
@@ -1096,7 +1114,6 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 " 下面的设置取消注释，并修改双引号中的键为你想要的，如修改为逗号键。
 
 " let mapleader = ","
-
 
 
 "Python
