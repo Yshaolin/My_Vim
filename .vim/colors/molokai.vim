@@ -147,7 +147,7 @@ if &t_Co > 255
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
    hi Number          ctermfg=220
-   hi String          ctermfg=42
+   hi String          ctermfg=43
    "if else elif import as from
    hi Conditional     ctermfg=202              cterm=bold
    hi Constant        ctermfg=135               cterm=bold
@@ -166,7 +166,7 @@ if &t_Co > 255
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    "try finally execpt
    hi Exception       ctermfg=202               cterm=bold
-   hi Float           ctermfg=135
+   hi Float           ctermfg=222
    hi FoldColumn      ctermfg=67  ctermbg=16
    hi Folded          ctermfg=67  ctermbg=16
    hi Function        ctermfg=118
@@ -183,7 +183,7 @@ if &t_Co > 255
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    "=,-,*,
-   hi Operator        ctermfg=202   cterm=bold
+   hi Operator        ctermfg=202   cterm=none
    "python def
    hi Definition      ctermfg=45 cterm=bold
    "python funcname
@@ -196,8 +196,8 @@ if &t_Co > 255
    hi PmenuSbar                   ctermbg=232
    hi PmenuThumb      ctermfg=81
 
-   hi PreCondit       ctermfg=118               cterm=bold
-   hi PreProc         ctermfg=118
+   hi PreCondit       ctermfg=196               cterm=bold
+   hi PreProc         ctermfg=196
    hi Question        ctermfg=81
    "while  for
    hi Repeat          ctermfg=202               cterm=bold
